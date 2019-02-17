@@ -1,0 +1,87 @@
+alias thomas="ssh tmwiegan@thomas.butler.edu"
+
+mkcd () {
+  mkdir "$1"
+  cd "$1"
+}
+
+open () {
+    xdg-open "$1" & &> /dev/null
+}
+
+volume () {
+    amixer -D pulse sset Master $1
+}
+
+2m () {
+
+    if [ "$1" = "-h" || "$1" = "-help" || "$1" = "--help" ]; then
+        ls /home/troy/.screenlayout | sed -n 's/\.sh$//p'
+    else
+        sh ~/.screenlayout/$1.sh
+    feh --bg-scale ~/Pictures/Wallpapers/ravnica_guild_series_1_by_deltaraen-d5pufut.jpg
+    fi
+}
+
+volume () {
+    amixer -D pulse sset Master $1
+
+if [ $# -eq 2 ] 
+	then
+ pactl set-card-profile 0 output:$2-stereo
+fi
+}
+
+brightness () {
+     sudo bash -c "sudo echo $1 > /sys/class/backlight/intel_backlight/brightness"
+}
+
+colorgrid ()
+{
+    iter=16
+    while [ $iter -lt 52 ]
+    do
+        second=$[$iter+36]
+        third=$[$second+36]
+        four=$[$third+36]
+        five=$[$four+36]
+        six=$[$five+36]
+        seven=$[$six+36]
+        if [ $seven -gt 250 ];then seven=$[$seven-251]; fi
+
+        echo -en "\033[38;5;$(echo $iter)m█ "
+        printf "%03d" $iter
+        echo -en "   \033[38;5;$(echo $second)m█ "
+        printf "%03d" $second
+        echo -en "   \033[38;5;$(echo $third)m█ "
+        printf "%03d" $third
+        echo -en "   \033[38;5;$(echo $four)m█ "
+        printf "%03d" $four
+        echo -en "   \033[38;5;$(echo $five)m█ "
+        printf "%03d" $five
+        echo -en "   \033[38;5;$(echo $six)m█ "
+        printf "%03d" $six
+        echo -en "   \033[38;5;$(echo $seven)m█ "
+        printf "%03d" $seven
+
+        iter=$[$iter+1]
+        printf '\r\n'
+    done
+}
+
+rmdc (){
+echo "require(rmarkdown); render('$(pwd)/$1')" | R --vanilla
+}
+
+rmda (){
+echo "require(rmarkdown); render('$1')" | R --vanilla
+}
+
+export PATH="$PATH:."
+
+mpitemp (){
+curl https://blue.butler.edu/~agupta/CS452/mpitemplate.cpp > $1
+}
+
+
+
