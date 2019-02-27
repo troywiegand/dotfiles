@@ -88,3 +88,11 @@ tommysync (){
     git pull
     git push
     ssh -t tmwiegan@thomas.butler.edu "cd $1 ;  git pull"}
+
+tomsync (){
+    direc=$(echo ${PWD/#$HOME/'~'})
+    git pull
+    git push
+    ssh -t tmwiegan@thomas.butler.edu "cd $direc ;  git pull"
+
+}
