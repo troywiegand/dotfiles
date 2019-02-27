@@ -84,4 +84,7 @@ curl https://blue.butler.edu/~agupta/CS452/mpitemplate.cpp > $1
 }
 
 
-
+tommysync (){
+    git pull
+    git push
+    ssh -t tmwiegan@thomas.butler.edu "cd $1 ;  git pull"}
