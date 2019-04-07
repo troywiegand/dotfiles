@@ -207,7 +207,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym XF86Calculator [instance="math"] scratchpad show; [instance="math"] move position center 
 
 bindsym $mod+F9 exec i3-msg exit
-bindsym $mod+F7 exec /home/troy/.config/scripts/lock.sh
+bindsym $mod+F7 exec ~/.config/scripts/lock.sh
 
 bindsym $mod+Shift+b gaps inner current plus 5
 bindsym $mod+Shift+n gaps inner current minus 5
