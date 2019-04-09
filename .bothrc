@@ -1,4 +1,3 @@
-
 alias thomas="ssh tmwiegan@thomas.butler.edu"
 
 mkcd () {
@@ -97,3 +96,13 @@ tomsync (){
     ssh -t tmwiegan@thomas.butler.edu "cd $direc ;  git pull"
 
 }
+
+
+yeetnotf (){
+($@  && notify-send "GOOD YEET") || notify-send  "BAD YEET"
+}
+
+notf (){
+(${@:3}  && notify-send "$1") || notify-send  "$2"
+}
+
