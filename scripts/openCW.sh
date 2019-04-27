@@ -1,0 +1,1 @@
+echo "Legends\nArrow\nFlash\nSupergirl" | dmenu | xargs -I {} echo "Videos/CW/{}" | tee /tmp/show.txt  | xargs -I {} ls -R /home/troy/{} | grep .mp4 | dmenu -i | rev | cut -f2- | rev >> /tmp/show.txt; head -1 /tmp/show.txt | xargs -I {} echo "/home/troy/{}/`tail -1 /tmp/show.txt`" | xargs -I {} mpv {}
