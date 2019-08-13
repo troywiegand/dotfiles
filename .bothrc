@@ -77,7 +77,7 @@ rmda (){
 echo "require(rmarkdown); render('$1')" | R --vanilla
 }
 
-export PATH="$PATH:.:/home/troy/.config/scripts"
+#export PATH="$PATH:.:/home/troy/.config/scripts"
 
 mpitemp (){
 curl https://blue.butler.edu/~agupta/CS452/mpitemplate.cpp > $1
@@ -87,7 +87,8 @@ curl https://blue.butler.edu/~agupta/CS452/mpitemplate.cpp > $1
 tommysync (){
     git pull
     git push
-    ssh -t tmwiegan@thomas.butler.edu "cd $1 ;  git pull"}
+    ssh -t tmwiegan@thomas.butler.edu "cd $1 ;  git pull"
+}
 
 tomsync (){
     direc=$(echo ${PWD/#$HOME/'~'})
@@ -106,3 +107,6 @@ notf (){
 (${@:3}  && notify-send "$1") || notify-send  "$2"
 }
 
+cpvcssh (){
+    ssh "$1"@192.168.1.53
+}
