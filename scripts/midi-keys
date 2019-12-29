@@ -1,0 +1,37 @@
+###VERY BIG WORK IN PROGRESS / MAPPING Launchpad Mini notes to keystrokes
+
+aseqdump -p "Launchpad Mini" | \
+while IFS=" ," read src ev1 ev2 ch label1 data1 label2 data2 rest; do
+    case "$ev1 $ev2 $data1" in
+        "Note on 67" ) xdotool keydown ctrl;;
+        "Note off 67" ) xdotool keyup ctrl;;
+        "Note on 34" ) xdotool keydown q;;
+        "Note off 34" ) xdotool keyup q;;
+        "Note on 35" ) xdotool keydown w;;
+        "Note off 35" ) xdotool keyup w;;
+        "Note on 36" ) xdotool keydown e;;
+        "Note off 36" ) xdotool keyup e;;
+        "Note on 37" ) xdotool keydown r;;
+        "Note off 37" ) xdotool keyup r;;
+        "Note on 80" ) xdotool keydown Up;;
+        "Note off 80" ) xdotool keyup Up;;
+         "Note on 81" ) xdotool keydown Left;;
+        "Note off 81" ) xdotool keyup Left;;
+        "Note on 96" ) xdotool keydown Down;;
+        "Note off 96" ) xdotool keyup Down;;
+        "Note on 97" ) xdotool keydown Right;;
+        "Note off 97" ) xdotool keyup Right;;
+        "Note on 7" ) xdotool keydown BackSpace;;
+        "Note off 7" ) xdotool keyup BackSpace;;
+        "Note on 51" ) xdotool keydown Shift;;
+        "Note off 51" ) xdotool keyup Shift;;
+        "Note on 68" ) xdotool keydown Super;;
+        "Note off 68" ) xdotool keyup Super;;
+        "Note on 71" ) xdotool keydown Return;;
+        "Note off 71" ) xdotool keyup Return;;
+        "Note on 104" ) xdotool keydown g;;
+        "Note off 104" ) xdotool keyup g;;
+        "Note on 120" ) xdotool keydown h;;
+        "Note off 120" ) xdotool keyup h;;
+    esac
+done
