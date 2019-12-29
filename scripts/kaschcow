@@ -1,0 +1,1 @@
+xcowsay --image=/home/troy/kaschmeme.png --bubble-at=-125,-155 "$@"
