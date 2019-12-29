@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ADDRESS=$(ip address | grep "inet " | grep -v " lo" | awk '{print $2}')
+
+SSID=$(iwgetid -r)
+
+
+if [ -z "$ADDRESS" ]; then
+    echo -n "睊"
+else
+    # WIFI=$(nmcli | grep connected | cut -c 22-)
+    # BARS=$(nmcli dev wifi | grep $WIFI | cut -c 54-65)
+    # echo -n $ADDRESS $BARS
+    echo -n $SSID 直 $ADDRESS
+fi

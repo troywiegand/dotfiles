@@ -1,0 +1,11 @@
+#!/bin/bash
+
+##Put in if statement for if music is actually playing
+STATUS=$(gpmdp-remote status)
+PLAY="Playing"
+
+if [ "$PLAY" = "$STATUS" ]; then
+	echo "scale=4;$(gpmdp-remote time_current) / $(gpmdp-remote time_total)*100" | bc | sed 's/..$//' | xargs -I {} echo "$(gpmdp-remote info | cut -c 13-) - {}%"
+else
+	echo ""
+fi
