@@ -1,3 +1,4 @@
+cat ~/.cache/wal/sequences && clear
 alias thomas="ssh tmwiegan@thomas.butler.edu"
 
 mkcd () {
@@ -90,6 +91,12 @@ tommysync (){
     ssh -t tmwiegan@thomas.butler.edu "cd $1 ;  git pull"
 }
 
+NotesSync (){
+git pull
+git push
+ssh -t tmwiegan@thomas.butler.edu "cd ButlerJunk; git pull; cp ~/ButlerJunk/$1/slides.pdf ~/public_html/$1Slides.pdf"
+}
+
 tomsync (){
     direc=$(echo ${PWD/#$HOME/'~'})
     git pull
@@ -110,3 +117,10 @@ notf (){
 cpvcssh (){
     ssh "$1"@192.168.1.53
 }
+
+alias setclip="xclip -selection c"
+alias getclip="xclip -selection c -o"
+
+alias tetris="ssh netris.rocketnine.space"
+
+alias CAL="calcurse && calcurse-caldav"

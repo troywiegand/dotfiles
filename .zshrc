@@ -56,8 +56,14 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-)
+  colored-man-pages
+  wd
+  httpie
+  vi-mode
+  )
 
 source $ZSH/oh-my-zsh.sh
 
 POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
+source /home/troy/randomcrap/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
