@@ -151,3 +151,6 @@ ctrl+shift+Delete
 	/home/troy/dotfiles/scripts/lockscreen.sh
 
 
+# SOUNDBOARD
+super+ctrl+a: {j,y,r,R}
+	ffplay -nodisp  /home/troy/Music/Audio/{january.m4a,year.m4a,shortRoundabout.m4a,longRoundabout.m4a} 
