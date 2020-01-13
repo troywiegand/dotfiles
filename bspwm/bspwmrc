@@ -12,16 +12,16 @@ compton
 #bspc monitor eDP-1 -n 0 -d I II III IV V VI VII VIII IX X
 #bspc monitor HDMI-1 -n 1 -d I II III IV V VI VII VIII IX X
 
-HDMI = $(xrandr -q | grep HDMI-1 | awk '{print $2}')
-DVI = $(xrandr -q | grep DVI-I-1-1 | awk '{print $2}')
+HDMI=$(xrandr -q | grep HDMI-1 | awk '{print $2}')
+DVI=$(xrandr -q | grep DVI-I-1-1 | awk '{print $2}')
 
-if [ "$(xrandr -q | grep HDMI-1 | awk '{print $2}')" == "connected" ]; then
-	bspc monitor eDP-1 -d 1 2 3 4 5
+if [ "$HDMI" == "connected" ]; then
 	bspc monitor HDMI-1 -d 6 7 8 9 10
-elif [ "$(xrandr -q | grep DVI-I-1-1 | awk '{print $2}')" == "connected" ]; then
+	bspc monitor eDP-1 -d 1 2 3 4 5
+elif [ "$DVI" == "connected" ]; then
 	bspc monitor DVI-I-1-1 -d 1 2 3
 	bspc monitor eDP-1 -d 4 5 6
-	bspc monitor DVI-I-2-2 7 8 9 10
+	bspc monitor DVI-I-2-2 -d 7 8 9 10
 else
 	bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9 10
 fi
@@ -38,5 +38,5 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc config remove_disabled_monitors true
-
+bspc config merge_overlapping_monitors true
 bspc config remove_unplugged_monitors true

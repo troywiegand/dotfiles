@@ -1,10 +1,13 @@
+#! /bin/bash
+
 #
 # wm independent hotkeys
 #
 #
 
-super+ctrl+{f,g}
-	{/home/troy/.screenlayout/148.sh,/home/troy/.screenlayout/laptop.sh}
+# Scripts to switch workspaces on layouts
+control + alt + {f,g,t,M}
+	~/dotfiles/screenlayouts/{148.sh,laptop.sh,homethree.sh,homemirror.sh}
 
 # terminal emulator
 super + Return
@@ -145,7 +148,7 @@ super + shift + o : {c,v,f}
 
 #Open Help Rofi Menu
 super+ctrl+alt+h
-	cat /home/troy/.config/sxhkd/sxhkdrc | awk '/^[a-z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' | column -t -s $'\t' | rofi -dmenu -i -no-show-icons -theme /home/troy/.cache/wal/colors-rofi-dark -width 1000
+	awk '/^[a-z]/&& last {print $0,"\t",last} {last=""} /^#/{last=$0}' ~/.config/sxhkd/sxhkdrc | column -t -s $'\t' | rofi -dmenu -i -no-show-icons -theme /home/troy/.cache/wal/colors-rofi-dark -width 1000
 
 ctrl+shift+Delete
 	/home/troy/dotfiles/scripts/lockscreen.sh
@@ -154,3 +157,11 @@ ctrl+shift+Delete
 # SOUNDBOARD
 super+ctrl+a: {j,y,r,R}
 	ffplay -nodisp  /home/troy/Music/Audio/{january.m4a,year.m4a,shortRoundabout.m4a,longRoundabout.m4a} 
+
+# KILL SOUNDBOARD (Thanks Dave)
+super+ctrl+a: x
+	pkill ffplay
+
+# ButlerJunk Script
+super + ctrl + b
+	~/dotfiles/scripts/ButlerJunkPDF.sh
