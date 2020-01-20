@@ -165,3 +165,7 @@ super+ctrl+a: x
 # ButlerJunk Script
 super + ctrl + b
 	~/dotfiles/scripts/ButlerJunkPDF.sh
+
+#Run Improved CW script
+super + ctrl + c 
+	~/dotfiles/scripts/CW.sh

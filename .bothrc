@@ -1,5 +1,6 @@
 cat ~/.cache/wal/sequences && clear
-alias thomas="ssh tmwiegan@thomas.butler.edu"
+
+alias thomas="ssh -X tmwiegan@thomas.butler.edu"
 
 mkcd () {
   mkdir "$1"

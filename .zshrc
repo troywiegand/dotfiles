@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+export PATH=$HOME/bin:/usr/local/bin:$PATH:~/dotfiles/scripts
 
 ##All my cool alias and stuff
 if [ -f $HOME/.bothrc ]; then
