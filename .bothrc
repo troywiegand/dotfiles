@@ -1,5 +1,5 @@
-if [ -f ~/.cache/wal/sequences ]; then
-	cat ~/.cache/wal/sequences && clear
+if [[ -f ~/.cache/wal/sequences ]]; then
+  cat ~/.cache/wal/sequences && clear
 fi
 
 
