@@ -1,4 +1,7 @@
-cat ~/.cache/wal/sequences && clear
+if [ -f ~/.cache/wa;/sequences ]; then
+	cat ~/.cache/wal/sequences && clear
+fi
+
 
 alias thomas="ssh -X tmwiegan@thomas.butler.edu"
 
@@ -9,33 +12,6 @@ mkcd () {
 
 open () {
     xdg-open "$1" & &> /dev/null
-}
-
-volume () {
-    amixer -D pulse sset Master $1
-}
-
-2m () {
-    if [ "$1" = "-h" ] || [ "$1" = "-help" ] || [ "$1" = "--help" ] 
-then
-        ls /home/troy/.screenlayout | sed -n 's/\.sh$//p'
-    else
-        /home/troy/.screenlayout/$1.sh
-    feh --bg-scale ~/Pictures/Wallpapers/ravnica_guild_series_1_by_deltaraen-d5pufut.jpg
-    fi
-}
-
-volume () {
-    amixer -D pulse sset Master $1
-
-if [ $# -eq 2 ] 
-	then
- pactl set-card-profile 0 output:$2-stereo
-fi
-}
-
-brightness () {
-     sudo bash -c "sudo echo $1 > /sys/class/backlight/intel_backlight/brightness"
 }
 
 colorgrid ()
