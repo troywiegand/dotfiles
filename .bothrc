@@ -1,4 +1,4 @@
-if [ -f ~/.cache/wa;/sequences ]; then
+if [ -f ~/.cache/wal/sequences ]; then
 	cat ~/.cache/wal/sequences && clear
 fi
 
