@@ -6,8 +6,8 @@
 #
 
 # Scripts to switch workspaces on layouts
-control + alt + {f,g,t,M}
-	~/dotfiles/screenlayouts/{148.sh,laptop.sh,homethree.sh,homemirror.sh}
+control + alt + {f,g,t,M,u}
+	~/dotfiles/screenlayouts/{148.sh,laptop.sh,homethree.sh,homemirror.sh,tutor.sh}
 
 # terminal emulator
 super + Return
@@ -166,6 +166,9 @@ super+ctrl+a: x
 super + ctrl + b
 	~/dotfiles/scripts/ButlerJunkPDF.sh
 
+# Mansplain
+super + ctrl + s
+	~/dotfiles/scripts/mansplain.sh
 #Run Improved CW script
 super + ctrl + c 
 	~/dotfiles/scripts/CW.sh

@@ -1,6 +1,6 @@
 cat ~/.cache/wal/sequences && clear
 
-alias thomas="ssh -X tmwiegan@thomas.butler.edu"
+alias thomas="ssh tmwiegan@thomas.butler.edu"
 
 mkcd () {
   mkdir "$1"
@@ -115,8 +115,10 @@ notf (){
 (${@:3}  && notify-send "$1") || notify-send  "$2"
 }
 
-cpvcssh (){
-    ssh "$1"@192.168.1.53
+poopdeckssh (){
+    
+((curl -sq ifconfig.me | grep "47.227.65.42" ) && ssh "$1"@192.168.1.53) || ssh "$1"@47.227.65.42
+
 }
 
 alias setclip="xclip -selection c"
@@ -125,3 +127,5 @@ alias getclip="xclip -selection c -o"
 alias tetris="ssh netris.rocketnine.space"
 
 alias CAL="calcurse && calcurse-caldav"
+
+export PROMPT_COMMAND='history -a; history -r'

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ADDRESS=$(ip address | grep "inet " | grep -v " lo" | awk '{print $2}')
+ADDRESS=$(ip address | grep "inet " | grep "wlp2s0" | awk '{print $2}')
 
 SSID=$(iwgetid -r)
 

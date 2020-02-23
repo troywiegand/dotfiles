@@ -1,1 +1,1 @@
-man -Tpdf $(man -k . | dmenu -l 30 | awk '{print $1}') | zathura -
+man -Tpdf $(man -k . | rofi -dmenu -theme ~/.cache/wal/colors-rofi-dark | awk '{print $1}') | zathura -
