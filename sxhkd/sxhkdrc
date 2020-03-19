@@ -172,3 +172,7 @@ super + ctrl + s
 #Run Improved CW script
 super + ctrl + c 
 	~/dotfiles/scripts/CW.sh
+
+#Run Zoom Switch script
+ctrl+alt+z
+        ~/dotfiles/scripts/ZOOM

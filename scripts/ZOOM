@@ -1,0 +1,9 @@
+export MEETING=$(echo "CS\nBIBLE\nAI" | rofi -dmenu -theme ~/.cache/wal/colors-rofi-dark -p "ZOOM")
+
+case "$MEETING" in
+CS)     xdg-open "zoommtg://zoom.us/join?action=join&confno=869346631";;
+BIBLE)  xdg-open "zoommtg://zoom.us/join?action=join&confno=629574246";;
+AI)     xdg-open "zoommtg://zoom.us/join?action=join&confno=984830674";;
+*)      xcowsay "WTF MATE"
+esac
+
