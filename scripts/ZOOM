@@ -1,9 +1,14 @@
-export MEETING=$(echo "CS\nBIBLE\nAI" | rofi -dmenu -theme ~/.cache/wal/colors-rofi-dark -p "ZOOM")
+export MEETING=$(echo "CS\nTROY\nBIBLE\nAI\nDAVE\nABBY\nCHLOE" | rofi -dmenu -theme ~/.cache/wal/colors-rofi-dark -p "ZOOM")
 
 case "$MEETING" in
-CS)     xdg-open "zoommtg://zoom.us/join?action=join&confno=869346631";;
-BIBLE)  xdg-open "zoommtg://zoom.us/join?action=join&confno=629574246";;
-AI)     xdg-open "zoommtg://zoom.us/join?action=join&confno=984830674";;
+CS)          xdg-open "zoommtg://zoom.us/join?action=join&confno=869346631";;
+BIBLE)       xdg-open "zoommtg://zoom.us/join?action=join&confno=629574246";;
+AI)          xdg-open "zoommtg://zoom.us/join?action=join&confno=984830674";;
+TROY)        xdg-open "zoommtg://zoom.us/join?action=join&confno=6810845744";;
+DAVE)        xdg-open "zoommtg://zoom.us/join?action=join&confno=3686862816";;
+ABBY)        xdg-open "zoommtg://zoom.us/join?action=join&confno=2748511720";;
+GEORGES)     xdg-open "zoommtg://zoom.us/join?action=join&confno=3174323028";;
+CHLOE)     xdg-open "zoommtg://zoom.us/join?action=join&confno=6276728797";;
 *)      xcowsay "WTF MATE"
 esac
 
