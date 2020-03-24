@@ -1,0 +1,2 @@
+xsetwacom list devices | head -n 2 | awk '{print $7}' | xargs -I{} xsetwacom set {} MapToOutput $(xrandr | grep " connected " | awk '{ print$1 }' | rofi -dmenu -theme ~/.cache/wal/colors-rofi-dark -p "Where Do you want the Wacom to focus?")
+
