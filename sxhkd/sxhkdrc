@@ -6,8 +6,8 @@
 #
 
 # Scripts to switch workspaces on layouts
-control + alt + {f,g,t,M,u}
-	~/dotfiles/screenlayouts/{148.sh,laptop.sh,homethree.sh,homemirror.sh,tutor.sh}
+control + alt + {f,g,t,M,u,H}
+	~/dotfiles/screenlayouts/{148.sh,laptop.sh,homethree.sh,homemirror.sh,tutor.sh,homefour.sh}
 
 # terminal emulator
 super + Return
@@ -176,3 +176,7 @@ super + ctrl + c
 #Run Zoom Switch script
 ctrl+alt+z
         ~/dotfiles/scripts/ZOOM
+
+#Run Wacom Switch script
+ctrl+alt+w
+        ~/dotfiles/scripts/WACOM

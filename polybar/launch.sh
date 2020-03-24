@@ -12,17 +12,15 @@ HDMI = "$(xrandr -q | grep HDMI-1 | awk '{print $2}')"
 DVI = "$(xrandr -q | grep DVI-I-1-1 | awk '{print $2}')"
 
 
-
 ## Just one thing connected
 if [ "$(xrandr -q | grep HDMI-1 | awk '{print $2}')" == "connected" ]; then
-	polybar -c /home/troy/.config/polybar/config.ini eDP-1 &
-	polybar -c /home/troy/.config/polybar/config.ini HDMI-1 &
-## The dock thingy I have at runs it with these DVI 
-elif [  "$(xrandr -q | grep DVI-I-1-1 | awk '{print $2}')" == "connected" ]; then
-	polybar -c /home/troy/.config/polybar/config.ini DVI-I-1-1 &
-	polybar -c /home/troy/.config/polybar/config.ini eDP-1 &
-	polybar -c /home/troy/.config/polybar/config.ini DVI-I-2-2 &
-else
-	polybar -c /home/troy/.config/polybar/config.ini eDP-1 &
+    polybar -c /home/troy/.config/polybar/config.ini HDMI-1 &
 fi
+## The dock thingy I have at runs it with these DVI 
+if [  "$(xrandr -q | grep DVI-I-1-1 | awk '{print $2}')" == "connected" ]; then
+	polybar -c /home/troy/.config/polybar/config.ini DVI-I-1-1 &
+	polybar -c /home/troy/.config/polybar/config.ini DVI-I-2-2 &
+fi
+	
+polybar -c /home/troy/.config/polybar/config.ini eDP-1 &
 
