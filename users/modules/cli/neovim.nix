@@ -13,7 +13,7 @@ in {
     colorschemes.catppuccin = {
       enable = true;
       settings = {
-        flavour = "frappe";
+        flavour = "mocha";
         transparent_background = true;
       };
     };
@@ -108,10 +108,6 @@ in {
       end, {remap=true})
     '';
 
-    #colorschemes.catppuccin = {
-    #  enable = true;
-    #  flavour = "mocha";
-    #};
   };
   #programs.neovim = {
   #  enable = true;

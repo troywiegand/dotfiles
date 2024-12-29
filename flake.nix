@@ -18,7 +18,9 @@
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
-    ghostty = { url = "github:ghostty-org/ghostty"; };
+    ghostty.url = "github:ghostty-org/ghostty";
+
+    catppuccin.url = "github:catppuccin/nix";
 
     # configure neovim and neovim plugins with nix
     nixvim = {

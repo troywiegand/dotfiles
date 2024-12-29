@@ -7,6 +7,13 @@
     ./nix.nix
   ];
 
+  catppuccin = {
+    gitui.enable = true;
+    starship.enable = true;
+    yazi.enable = true;
+    zellij.enable = true;
+  };
+
   programs = {
     git = {
       enable = true;
@@ -34,10 +41,9 @@
       enable = true;
       # this enables zellij on shell startup
       #enableBashIntegration = true;
-      catppuccin.enable = true;
-      #settings = {
-      #  theme = "catppuccin-mocha";
-      #};
+      settings = {
+       theme = "catppuccin-mocha";
+      };
     };
 
     atuin = {
@@ -47,7 +53,6 @@
 
     gitui = {
       enable = true;
-      catppuccin.enable = true;
     };
 
     htop = {
@@ -63,7 +68,6 @@
 
     yazi = {
       enable = true;
-      catppuccin.enable = true;
     };
   };
 

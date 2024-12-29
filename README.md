@@ -15,7 +15,7 @@ nix-shell -p git
 git clone git@github.com:troywiegand/dotfiles.git
 cd ~/dotfiles
 nixos-rebuild switch --extra-experimental-features flakes \
-    --extra-experimental-features nix-command switch --flake .#<host>
+    --extra-experimental-features nix-command --flake .#<host>
 ```
 
 

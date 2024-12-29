@@ -4,8 +4,6 @@
     enableBashIntegration = true;
     enableFishIntegration = true;
 
-    catppuccin.enable = true;
-
     settings = {
       format = ''
         $env_var$username$nix_shell$git_branch$directory$character
