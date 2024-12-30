@@ -17,8 +17,6 @@
   home.username = "troy";
   home.homeDirectory = "/home/troy";
 
-  bash.terminal = "ghostty"; # should probably find a better spot for this
-
   # can this be removed?
   home.sessionPath = [
     "/home/troy/.nix-profile/bin"

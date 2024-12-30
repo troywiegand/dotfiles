@@ -71,5 +71,5 @@
     ];
   in stable-packages ++ unstable-packages;
 
-  home.stateVersion = "23.05";
+  home.stateVersion = "24.05";
 }

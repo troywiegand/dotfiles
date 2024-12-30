@@ -1,17 +1,5 @@
 { config, lib, ... }: 
-with lib;
-let
-  cfg = config.zsh;
-in {
-  options = {
-    zsh.terminal = mkOption {
-      type = types.str;
-      description = ''
-        The default terminal.
-      '';
-    };
-  };
-
+{
   config = {
     programs.zsh = {
       enable = true;
@@ -65,8 +53,6 @@ in {
         hms = "home-manager switch --flake ~/repos/dotfiles";
         snrs = "sudo nixos-rebuild switch --flake ~/repos/dotfiles";
         nd = "nix develop";
-
-        clone = "(pwd | ${cfg.terminal} & disown \$!)";
       };
     };
   };

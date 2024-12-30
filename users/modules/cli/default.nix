@@ -1,10 +1,10 @@
 { pkgs, config, ... }:
 {
   imports = [
-    ./bash.nix
     ./starship.nix
     ./neovim.nix
     ./nix.nix
+    ./zsh.nix
   ];
 
   catppuccin = {
@@ -22,6 +22,7 @@
       extraConfig = {
         pull.rebase = false;
         init.defaultBranch = "main";
+        core.editor = "nvim";
       };
     };
 

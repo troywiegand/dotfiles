@@ -14,7 +14,7 @@
       "Control-Minus" = "font-size:decrease";
     };
     extraConfig = {
-      catppuccin: https://github.com/catppuccin/urxvt/blob/main/catppuccin.Xresources
+      catppuccin = https://github.com/catppuccin/urxvt/blob/main/catppuccin.Xresources;
       foreground = "#DADAE8";
       background = "#1E1E29";
       cursorColor = "#B1E3AD";
