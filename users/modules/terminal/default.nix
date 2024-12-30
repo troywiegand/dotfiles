@@ -1,7 +1,6 @@
 { pkgs, inputs, ... }:
 {
   imports = [
-    ./alacritty.nix
     ./urxvt.nix
   ];
 
