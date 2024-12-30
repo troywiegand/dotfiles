@@ -1,10 +1,10 @@
 { config, lib, ... }: 
 with lib;
 let
-  cfg = config.bash;
+  cfg = config.zsh;
 in {
   options = {
-    bash.terminal = mkOption {
+    zsh.terminal = mkOption {
       type = types.str;
       description = ''
         The default terminal.
@@ -13,7 +13,7 @@ in {
   };
 
   config = {
-    programs.bash = {
+    programs.zsh = {
       enable = true;
       initExtra = ''
         # Opens a file in the default program.

@@ -24,11 +24,12 @@
     enable = true;
     flake = "/home/troy/repos/dotfiles";
   };
-
+  programs.zsh.enable = true;
   users.users.troy = {
     isNormalUser = true;
     description = "troy";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
+    shell = pkgs.zsh;
   };
 
   environment.systemPackages = with pkgs; [
