@@ -45,6 +45,14 @@
         ];
         specialArgs = { inherit inputs; };
       };
+      
+      nixosConfigurations."azorius" = nixpkgs-stable.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ( import ./hosts/azorius/configuration.nix )
+        ];
+        specialArgs = { inherit inputs; };
+      };
 
       homeConfigurations."troy" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -58,6 +66,13 @@
         inherit pkgs;
         modules = [ 
           ./users/simic.nix
+        ];
+        extraSpecialArgs = { inherit inputs; };
+      };
+      homeConfigurations."troy@azorius" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ 
+          ./users/azorius.nix
         ];
         extraSpecialArgs = { inherit inputs; };
       };
