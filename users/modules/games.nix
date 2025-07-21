@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     superTuxKart
     prismlauncher
+    archipelago
     mindustry
     xonotic
     airshipper # game launcher for veloren

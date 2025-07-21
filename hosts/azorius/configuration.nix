@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
     ];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -19,6 +20,25 @@
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;  
   powerManagement.enable = false;
+
+    security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+        if (action.id == "org.freedesktop.login1.suspend" ||
+            action.id == "org.freedesktop.login1.suspend-multiple-sessions" ||
+            action.id == "org.freedesktop.login1.hibernate" ||
+            action.id == "org.freedesktop.login1.hibernate-multiple-sessions")
+        {
+            return polkit.Result.NO;
+        }
+    });
+  '';
+
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=no
+    AllowHibernation=no
+    AllowHybridSleep=no
+    AllowSuspendThenHibernate=no
+  '';
 
   networking.hostName = "azorius"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -31,7 +51,7 @@
   networking.networkmanager.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 80 443 ];
+    allowedTCPPorts = [ 80 443 5173 4000];
     };
   services.tailscale.enable = true;
 
@@ -54,20 +74,17 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "troy";
-  services.xserver.displayManager.gdm.autoSuspend = false;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+  services.xserver = {
+    enable = true;
+    desktopManager = {
+      #gnome.enable = true;
+      cinnamon.enable = true;
+    };
+    displayManager.lightdm = {
+      enable = true;
+    };
   };
+  services.displayManager.defaultSession = "cinnamon";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -77,6 +94,14 @@
   virtualisation.docker.rootless = {
     enable = true;
     setSocketVariable = true;
+  };
+  
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "0 */8 * * *  troy  /home/troy/docker/jellyfin/podcasts/Audiobooks/csb/download.sh"
+      "0 */8 * * *  troy  /home/troy/docker/jellyfin/podcasts/Audiobooks/dtw/download.sh"
+    ];
   };
 
   # Enable sound with pipewire.
@@ -154,7 +179,8 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedTCPPorts = [ 38281 ];
+
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;

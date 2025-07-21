@@ -18,6 +18,14 @@
         nrn () {
           nix run nixpkgs#"$1"
         }
+        nix() {
+          if [[ $1 == "develop" ]]; then
+            shift
+            command nix develop -c $SHELL "$@"
+          else
+            command nix "$@"
+          fi
+        }
       '';
       profileExtra = ''
         # add nix application desktop files
@@ -38,7 +46,7 @@
 
         # colors
         less = "less -R";
-        ls = "ls --color=auto";
+        ls = "lsd";
         grep = "grep --color=auto";
 
         # print human readable sizes
@@ -53,6 +61,7 @@
         hms = "home-manager switch --flake ~/repos/dotfiles";
         snrs = "sudo nixos-rebuild switch --flake ~/repos/dotfiles";
         nd = "nix develop";
+        nix-shell = "nix-shell --run $SHELL";
       };
     };
   };

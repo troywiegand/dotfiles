@@ -41,6 +41,7 @@
       jellyfin-media-player
       vlc
       localsend
+      handbrake
 
       # container and virtual machines
       distrobox
@@ -54,6 +55,7 @@
 
       vscodium
 
+      evil-helix
       pdftk
       inputs.ghostty.packages.x86_64-linux.default
       obsidian
@@ -70,6 +72,8 @@
       qbittorrent
     ];
   in stable-packages ++ unstable-packages;
+
+
 
   home.stateVersion = "24.05";
 }

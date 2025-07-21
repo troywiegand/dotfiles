@@ -7,10 +7,11 @@
 
     settings = {
       format = ''
-        $env_var$username$nix_shell$git_branch$directory$character
+        $env_var$username$nix_shell$git_branch$git_status$directory$character
       '';
       add_newline = false;
       nix_shell = {
+        disabled = false;
         format = "[\\[$name\\]]($style) ";
       };
       character = {
