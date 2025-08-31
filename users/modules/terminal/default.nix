@@ -5,13 +5,11 @@
   ];
 
   home.packages = with pkgs; [
-    (nerdfonts.override {
         fonts = [
-            "Iosevka"
-            "IosevkaTerm"
+            pkgs.nerd-fonts.Iosevka
+            pkgs.nerd-fonts.IosevkaTerm
             #"IosevkaTermSlab" ??
         ];
-    })
     noto-fonts-emoji
     #iosevka-bin
   ];

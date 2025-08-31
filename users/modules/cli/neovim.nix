@@ -31,17 +31,11 @@ in {
       vim-surround.enable = true;
       nvim-ufo.enable = false;
       typst-vim.enable = true;
-      cmp-tabby = {
-        enable = true;
-        settings.host = "http://localhost:11029";
-      };
       lsp = {
         enable = true;
         servers = {
           # markdown
           marksman.enable = true;
-          # does this do anything?
-          typst_lsp.enable = true;
         };
       };
       web-devicons.enable = true;

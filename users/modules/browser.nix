@@ -16,7 +16,7 @@
     profiles.normal = {
       name = "normal";
       isDefault = true;
-      extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+      extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
         bitwarden
         ublock-origin
         sponsorblock
@@ -77,17 +77,10 @@
         # "webgl.force-enabled" = true;
       };
       search = {
-        default = "Searxng";
+        default = "google";
         force = true;
 
         engines = {
-          "Searxng" = {
-            urls = [{
-              template = "https://etsi.me/search";
-              params = [{ name = "q"; value = "{searchTerms}"; }];
-            }];
-            definedAliases = [ "srx" ];
-          };
           "Nix Packages" = {
             urls = [{
               template = "https://search.nixos.org/packages";
@@ -108,7 +101,7 @@
             }];
             definedAliases = [ "hm" ];
           };
-          "YouTube" = {
+          "youtube" = {
             urls = [{
               template = "https://www.youtube.com/results";
               params = [
@@ -118,8 +111,11 @@
             definedAliases = [ "yt" ];
           };
 
-          "Bing".metaData.hidden = true;
-          "Google".metaData.hidden = true;
+          "amazondotcom-us".metaData.hidden = true;
+          "bing".metaData.hidden = true;
+          "ddg".metaData.hidden = true;
+          "ebay".metaData.hidden = true;
+          "google".metaData.hidden = false;
         };
       };
     };

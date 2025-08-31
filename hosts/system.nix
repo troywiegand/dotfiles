@@ -28,7 +28,7 @@
   users.users.troy = {
     isNormalUser = true;
     description = "troy";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "podman" "mc" ];
     shell = pkgs.zsh;
   };
 

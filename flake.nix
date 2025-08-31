@@ -3,10 +3,10 @@
 
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/release-24.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/release-25.05";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
@@ -24,7 +24,7 @@
 
     # configure neovim and neovim plugins with nix
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-24.11";
+      url = "github:nix-community/nixvim/nixos-25.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
   };
@@ -53,6 +53,14 @@
         ];
         specialArgs = { inherit inputs; };
       };
+      
+      nixosConfigurations."orzhov" = nixpkgs-stable.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ( import ./hosts/orzhov/configuration.nix )
+        ];
+        specialArgs = { inherit inputs; };
+      };
 
       homeConfigurations."troy" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -73,6 +81,13 @@
         inherit pkgs;
         modules = [ 
           ./users/azorius.nix
+        ];
+        extraSpecialArgs = { inherit inputs; };
+      };
+      homeConfigurations."troy@orzhov" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ 
+          ./users/orzhov.nix
         ];
         extraSpecialArgs = { inherit inputs; };
       };
