@@ -14,9 +14,10 @@
       ../modules/podman.nix
       ../modules/gaming.nix
       ../modules/printing.nix
+      ../modules/services/excalidraw.nix
+      ../modules/services/home-assistant.nix
       ../modules/services/immich.nix
       ../modules/services/jellyfin-baremetal.nix
-      ../modules/services/home-assistant.nix
     ];
 
   # Bootloader.
@@ -104,7 +105,7 @@
 
   # Open ports in the firewall.
   # used for board game day
-  networking.firewall.allowedTCPPorts = [ 4000 5173 25566 8096 25587];
+  networking.firewall.allowedTCPPorts = [ 4000 5173 25566 8096 25587 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
