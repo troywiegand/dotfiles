@@ -14,10 +14,12 @@
       ../modules/podman.nix
       ../modules/gaming.nix
       ../modules/printing.nix
+      ../modules/services/boardgameday.nix
       ../modules/services/excalidraw.nix
       ../modules/services/home-assistant.nix
       ../modules/services/immich.nix
       ../modules/services/jellyfin-baremetal.nix
+      ../modules/services/minecraft.nix
     ];
 
   # Bootloader.
@@ -72,11 +74,6 @@
     #media-session.enable = true;
   };
 
-
-  # Move this MC group stuff into a new module
-
-  users.groups.mc = {};
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.troy = {
     packages = with pkgs; [
@@ -84,12 +81,6 @@
     ];
   };
   
-  users.users.ryan = {
-    isNormalUser = true;
-    description = "Ryan Graham";
-    extraGroups = [ "mc" "docker" "podman" ];
-  };
-
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -101,14 +92,8 @@
   };
 
   # Enable the OpenSSH daemon.
+  # Modify the Default Port
   services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # used for board game day
-  networking.firewall.allowedTCPPorts = [ 4000 5173 25566 8096 25587 ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
