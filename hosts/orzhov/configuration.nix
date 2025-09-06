@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ../system.nix
 
-      #../modules/gnome.nix
+      ../modules/bluetooth.nix
       ../modules/podman.nix
       ../modules/gaming.nix
       ../modules/printing.nix
