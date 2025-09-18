@@ -20,6 +20,7 @@
       ../modules/services/immich.nix
       ../modules/services/jellyfin-baremetal.nix
       ../modules/services/minecraft.nix
+      ../modules/services/paperless.nix
     ];
 
   # Bootloader.
