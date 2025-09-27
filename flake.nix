@@ -10,6 +10,8 @@
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
+    sops-nix.url = "github:Mic92/sops-nix";
+
     # declaratively manage flatpaks
     flatpaks.url = "github:GermanBread/declarative-flatpak/stable-v3";
 
@@ -29,7 +31,7 @@
     };
   };
 
-  outputs = { home-manager, nixpkgs-stable, ... }@inputs:
+  outputs = { home-manager, nixpkgs-stable, sops-nix, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs-stable {
@@ -38,6 +40,12 @@
         overlays = [];
       };
     in {
+      devShells.${system}.default = pkgs.mkShell {
+        name = "dotfiles";
+        buildInputs = with pkgs; [
+          sops
+        ];
+      };
       nixosConfigurations."simic" = nixpkgs-stable.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [

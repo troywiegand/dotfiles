@@ -1,6 +1,18 @@
 { pkgs, inputs, ... }:
 {
   # Base system config for all NixOS configurations
+  
+  #SOPS Secret Management
+  imports = [
+    inputs.sops-nix.nixosModules.sops
+  ];
+
+  sops.defaultSopsFile = ../secrets/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+  sops.age.keyFile = "/home/troy/.config/sops/age/keys.txt";
+  
+  sops.secrets."hello" = {};
+
 
   # TODO: consider removing
   # Allow unfree packages
