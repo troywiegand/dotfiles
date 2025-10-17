@@ -7,6 +7,7 @@
       volumes = [
         "/mnt/thrull/home-assistant/config:/config"
         "/etc/localtime:/etc/localtime:ro"
+        "/run/dbus:/run/dbus:ro"
       ];
       autoStart = true;
       extraOptions = [ 
