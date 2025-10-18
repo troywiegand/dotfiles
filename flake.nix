@@ -69,6 +69,13 @@
         ];
         specialArgs = { inherit inputs; };
       };
+      nixosConfigurations."boros" = nixpkgs-stable.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ( import ./hosts/boros/configuration.nix )
+        ];
+        specialArgs = { inherit inputs; };
+      };
 
       homeConfigurations."troy" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -96,6 +103,13 @@
         inherit pkgs;
         modules = [ 
           ./users/orzhov.nix
+        ];
+        extraSpecialArgs = { inherit inputs; };
+      };
+      homeConfigurations."troy@boros" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ 
+          ./users/boros.nix
         ];
         extraSpecialArgs = { inherit inputs; };
       };
