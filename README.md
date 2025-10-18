@@ -1,6 +1,9 @@
 # My Home-Manager Configuration
 
-My dotfiles are managed using [Home Manager](https://github.com/nix-community/home-manager).  All my computers (even my work laptop that utilizes WSL) run Home Manager using nix to specify my configuration files and installed user-space tools and applications.  Similarly, my linux machines run [NixOS](https://wiki.nixos.org/wiki/Overview_of_the_NixOS_Linux_distribution), an operating whose configuration is built on `nix`.  NixOS manages system configuration, like hardware drivers, firewall rules, systemd units, file systems, containers, and desktop environments.  
+My dotfiles are managed using [Home Manager](https://github.com/nix-community/home-manager).
+Home Manager using nix to specify my configuration files and installed user-space tools and applications.
+Similarly, my linux machines run [NixOS](https://wiki.nixos.org/wiki/Overview_of_the_NixOS_Linux_distribution), an operating whose configuration is built on `nix`.
+NixOS manages system configuration, like hardware drivers, firewall rules, systemd units, file systems, containers, and desktop environments.
 
 Together, these tools entirely define my home (and soon cloud) infrastructure and user-space configuration and tools.
 
@@ -12,8 +15,10 @@ On a new NixOS installation, run this from the home directory.
 
 ```
 nix-shell -p git
+mkdir ~/repos
+cd repos
 git clone git@github.com:troywiegand/dotfiles.git
-cd ~/dotfiles
+cd dotfiles
 nixos-rebuild switch --extra-experimental-features flakes \
     --extra-experimental-features nix-command --flake .#<host>
 ```
@@ -25,8 +30,9 @@ In any linux environment with nix installed, run the following from the home dir
 
 ```
 nix-shell -p git home-manager
+cd repos
 git clone git@github.com:troywiegand/dotfiles.git
-cd ~/dotfiles
+cd dotfiles
 home-manager --extra-experimental-features flakes \
     --extra-experimental-features nix-command switch --flake .#troy
 ```
@@ -46,13 +52,8 @@ The modules are not polished, nor meant for external use.  They are simply used 
 ## Hosts and Users
 
 I manage a few host machines on my home network:
-* `rumtower`: my gaming and main productivity rig
-* `rumprism`: my laptop for light productivity work
-* `rumnas`: my home NAS and server
-* `rumpi`: my Raspberry Pi 4
+* `simic`: my laptop for light productivity work
+* `orzhov`: my primary home server
+* `boros`: my secondary home server and backup
+* `azorius`: my old server RIP
 
-Similarly, home-manager configurations:
-* `rutrum@rumtower`
-* `rutrum@rumprism`
-* `rutrum@rumnas`
-* `rutrum`: for every other system, including non-nixos systems, like my work laptop running Windows with WSL.  It is also the baseline for the system-specific user configurations to extend upon.
