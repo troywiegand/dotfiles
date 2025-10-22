@@ -74,6 +74,7 @@
 
   home.packages = with pkgs; [
 
+    isd
     just
 
     # compression
