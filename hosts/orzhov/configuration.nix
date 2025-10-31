@@ -15,6 +15,7 @@
       ../modules/gaming.nix
       ../modules/printing.nix
       ../modules/services/boardgameday.nix
+      ../modules/services/code-server.nix
       ../modules/services/crafty.nix
       ../modules/services/excalidraw.nix
       ../modules/services/home-assistant.nix
