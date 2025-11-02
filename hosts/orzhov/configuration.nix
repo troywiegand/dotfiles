@@ -21,6 +21,7 @@
       ../modules/services/home-assistant.nix
       ../modules/services/immich.nix
       ../modules/services/jellyfin-baremetal.nix
+      ../modules/services/mealie.nix
       ../modules/services/minecraft.nix
       ../modules/services/ntfy.nix
       ../modules/services/paperless.nix
