@@ -45,6 +45,9 @@
         buildInputs = with pkgs; [
           sops
         ];
+        shellHook = ''
+          export name="";
+        '';
       };
       nixosConfigurations."simic" = nixpkgs-stable.lib.nixosSystem {
         system = "x86_64-linux";
