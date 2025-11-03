@@ -24,6 +24,12 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  fileSystems."/mnt/legion" =
+    { device = "/dev/md0";
+      fsType = "ext4";
+    };
+
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/e14d8ebe-44a6-4482-9d92-3dc8ea01b7d9"; }
     ];
