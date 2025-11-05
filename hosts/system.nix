@@ -9,7 +9,7 @@
 
   sops.defaultSopsFile = ../secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "/home/troy/.config/sops/age/keys.txt";
+  sops.age.sshKeyPaths = ["/home/troy/.ssh/sops"];
   
   sops.secrets."hello" = {};
 

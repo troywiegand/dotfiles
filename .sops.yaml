@@ -1,7 +1,14 @@
 keys:
   - &primary age1j9w62gw8twlhgr6u26z5xqjdc9ll5tzyzfacywyedz4u9l2py9mspe7za7
+  - &boros age109es39lytp7z0hu0ulgmdre4r5zn2qgex32gra7rpgj9zv3sa3mqgwp0cl
+  - &orzhov age1s6x3a53d6jqu5x728pzz6cnkqh9a2ka3r485jljw4e2xc40lupesct42jl
+  - &simic age1xlujd3dj709n39nra533atxrfv9r9j68gqandsw6sv0s4548tpyszdt7l7
+   
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
     - age:
       - *primary
+      - *boros
+      - *orzhov
+      - *simic
