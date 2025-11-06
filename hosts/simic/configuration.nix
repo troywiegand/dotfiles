@@ -14,8 +14,6 @@
     ../modules/printing.nix
 
     ../modules/docker.nix
-    ../modules/services/paperless.nix
-    ../modules/services/firefly.nix
   ];
 
   networking.hostName = "simic";

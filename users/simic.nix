@@ -4,8 +4,6 @@
   imports = [
     ./troy.nix
 
-    ./modules/terminal
-
     ./modules/production/video.nix
     ./modules/production/photo.nix
     ./modules/production/office.nix
@@ -58,9 +56,6 @@
       inputs.ghostty.packages.x86_64-linux.default
       obsidian
       _1password-gui
-      nerdfonts
-      noto-fonts-emoji
-
       # dont exist yet with nixpkgs, but cargo install works
       #vtracer toml-cli ytop checkexec
       discord
