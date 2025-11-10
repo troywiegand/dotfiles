@@ -1,15 +1,5 @@
-{ config, lib, pkgs, ... }:
-let
-  minecraftUser = "mc";
-  craftyBaseDir = "/opt/crafty";
-  craftyPort    = 8443;
-  dynamapPort   = 8124;
-  paradisusTest = {
-    Port = 26960;
-    VCPort = 26961;
-  };
-in {
-  networking.firewall.allowedTCPPorts = [ craftyPort dynamapPort paradisusTest.Port paradisusTest.VCPort ];
+{ config, lib, pkgs, ports, craftyBaseDir, userName, ... }:
+{
 
   systemd.tmpfiles.rules = [
   "d ${craftyBaseDir} 0755 ${minecraftUser} ${minecraftUser} -"
@@ -22,14 +12,15 @@ in {
 
   virtualisation.oci-containers = {
     backend = "podman";
-    containers.crafty = {
+    containers.paradisus-crafty = {
       image       = "arcadiatechnology/crafty-4:4.5.5";
       autoStart   = true;
       ports       = [
-        "${builtins.toString craftyPort}:8443"
-        "${builtins.toString dynamapPort}:8123"
-        "${builtins.toString paradisusTest.Port}:25565"
-        "${builtins.toString paradisusTest.VCPort}:${builtins.toString paradisusTest.VCPort}/udp"
+        "${builtins.toString ports.CraftyUI}:8443"
+        "${builtins.toString ports.MC}:${builtins.toString ports.MC}"
+        "${builtins.toString ports.VC}:${builtins.toString ports.VC}/udp"
+        "${builtins.toString ports.TestMC}:${builtins.toString ports.TestMC}"
+        "${builtins.toString ports.TestVC}:${builtins.toString ports.TestVC}/udp"
       ];
       volumes     = [
         "${craftyBaseDir}/backups:/crafty/backups"
