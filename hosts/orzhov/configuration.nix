@@ -16,16 +16,19 @@
       ../modules/printing.nix
       ../modules/services/boardgameday.nix
       ../modules/services/code-server.nix
+      ../modules/services/convertx.nix
       ../modules/services/crafty.nix
       ../modules/services/dashy.nix
       ../modules/services/excalidraw.nix
       ../modules/services/home-assistant.nix
       ../modules/services/immich.nix
+      ../modules/services/it-tools.nix
       ../modules/services/jellyfin-baremetal.nix
       ../modules/services/mealie.nix
       ../modules/services/minecraft.nix
       ../modules/services/ntfy.nix
       ../modules/services/paperless.nix
+      ../modules/services/stirling.nix
     ];
 
   # Bootloader.

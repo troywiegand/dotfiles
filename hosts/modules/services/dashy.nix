@@ -67,6 +67,24 @@
             icon = "hl-excalidraw";
             url = "${orzhov}:5000";
           }
+          {
+            title = "Convertx";
+            description = "File Conversions UI";
+            icon = "hl-convertx";
+            url = "${orzhov}:5001";
+          }
+          {
+            title = "Stirling-PDF";
+            description = "PDF tools";
+            icon = "hl-stirling-pdf";
+            url = "${orzhov}:5002";
+          }
+          {
+            title = "IT Tools";
+            description = "Misc IT tools";
+            icon = "hl-it-tools";
+            url = "${orzhov}:5003";
+          }
         ];
       }
       {
