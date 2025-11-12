@@ -53,6 +53,7 @@ The modules are not polished, nor meant for external use.  They are simply used 
 
 I manage a few host machines on my home network:
 * `simic`: my laptop for light productivity work
+* `izzet`: my home desktop
 * `orzhov`: my primary home server
 * `boros`: my secondary home server and backup
 * `azorius`: my old server RIP

@@ -72,6 +72,13 @@
         ];
         specialArgs = { inherit inputs; };
       };
+      nixosConfigurations."izzet" = nixpkgs-stable.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ( import ./hosts/izzet/configuration.nix )
+        ];
+        specialArgs = { inherit inputs; };
+      };
       nixosConfigurations."boros" = nixpkgs-stable.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -106,6 +113,13 @@
         inherit pkgs;
         modules = [ 
           ./users/orzhov.nix
+        ];
+        extraSpecialArgs = { inherit inputs; };
+      };
+      homeConfigurations."troy@izzet" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ 
+          ./users/izzet.nix
         ];
         extraSpecialArgs = { inherit inputs; };
       };

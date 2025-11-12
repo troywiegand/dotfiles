@@ -5,7 +5,6 @@
     prismlauncher
     archipelago
     mindustry
-    xonotic
     airshipper # game launcher for veloren
   ];
   services.flatpak.packages = [
