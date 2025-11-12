@@ -42,6 +42,7 @@
       vlc
       localsend
       handbrake
+      arandr
 
       # container and virtual machines
       distrobox

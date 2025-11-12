@@ -19,8 +19,15 @@ mkdir ~/repos
 cd repos
 git clone git@github.com:troywiegand/dotfiles.git
 cd dotfiles
-nixos-rebuild switch --extra-experimental-features flakes \
-    --extra-experimental-features nix-command --flake .#<host>
+nixos-rebuild switch --flake .#<host>
+```
+
+#### DisplayLink Drivers
+
+If you need display link run this command beforehand. Izzet is the only machine that implements them currently.
+
+```bash
+sudo nix-prefetch-url file://$PWD/manual-store/displaylink-610.zip
 ```
 
 

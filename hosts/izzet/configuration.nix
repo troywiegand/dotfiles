@@ -28,6 +28,14 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  systemd.services.dlm.wantedBy = [ "multi-user.target" ];
+
+  services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+
+  environment.systemPackages = with pkgs; [
+    displaylink
+  ];
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
