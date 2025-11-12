@@ -83,6 +83,8 @@
 
     isd
     just
+    tdf
+    typst
 
     # compression
     ouch # all-in-one compression utility
