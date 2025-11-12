@@ -9,6 +9,9 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../system.nix
+
+      ../modules/gaming.nix
+      ../modules/nvidia.nix
     ];
 
   # Bootloader.
@@ -27,6 +30,8 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.windowManager.bspwm.enable = true;
+  services.xserver.windowManager.bspwm.sxhkd.package = pkgs.sxhkd;
 
   systemd.services.dlm.wantedBy = [ "multi-user.target" ];
 
