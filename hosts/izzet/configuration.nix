@@ -9,6 +9,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../system.nix
+
+      ../modules/gaming.nix
     ];
 
   # Bootloader.
