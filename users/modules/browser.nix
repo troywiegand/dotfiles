@@ -1,8 +1,90 @@
 { config, pkgs, inputs, ... }:
 {
+
+  imports = [
+    inputs.zen-browser.homeModules.beta
+  ];
+
   home.packages = [
     pkgs.mullvad-browser
   ];
+
+  xdg.mimeApps = let
+    associations = builtins.listToAttrs (map (name: {
+        inherit name;
+        value = let
+          zen-browser = config.programs.zen-browser.package;
+        in
+          zen-browser.meta.desktopFileName;
+      }) [
+        "application/x-extension-shtml"
+        "application/x-extension-xhtml"
+        "application/x-extension-html"
+        "application/x-extension-xht"
+        "application/x-extension-htm"
+        "x-scheme-handler/unknown"
+        "x-scheme-handler/mailto"
+        "x-scheme-handler/chrome"
+        "x-scheme-handler/about"
+        "x-scheme-handler/https"
+        "x-scheme-handler/http"
+        "application/xhtml+xml"
+        "application/json"
+        "text/plain"
+        "text/html"
+      ]);
+  in {
+    associations.added = associations;
+    defaultApplications = associations;
+  };
+
+  programs.zen-browser = {
+    enable = true;
+    profiles."default" = {
+      containersForce = true;
+      containers = {
+        TW = {
+          color = "purple";
+          id=1;
+        };
+        BFH = {
+          color = "red";
+          id=2;
+        };
+        SR = {
+          color = "blue";
+          id=3;
+        };
+      };
+
+      spacesForce = true;
+      spaces = let
+        containers = config.programs.zen-browser.profiles."default".containers;
+      in {
+        "Default" = {
+          id = "c6de089c-410d-4206-961d-ab11f988d40a";
+          position = 1000;
+        };
+        "Media" = {
+          id = "cdd10fab-4fc5-494b-9041-325e5759195b";
+          icon = "📺";
+          position = 2000;
+        };
+        "Finance" = {
+          id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
+          icon = "💸";
+          position = 3000;
+        };
+      };
+      extensions.packages =
+        with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+          ublock-origin
+          dearrow
+          enhanced-github
+          sponsorblock
+        ];
+    };
+  };
 
   programs.chromium = {
     enable = true;
