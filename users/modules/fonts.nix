@@ -4,5 +4,6 @@
 
   home.packages = with pkgs; [
     font-manager
+    monaspace
   ];
 }

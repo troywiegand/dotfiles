@@ -48,7 +48,7 @@
           sops
         ];
         shellHook = ''
-          export name="";
+          export name="";
         '';
       };
       nixosConfigurations."simic" = nixpkgs-stable.lib.nixosSystem {

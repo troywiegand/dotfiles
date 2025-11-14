@@ -7,7 +7,7 @@
 
     settings = {
       format = ''
-        $env_var$username$nix_shell$git_branch$git_status$directory$character
+        $env_var$username$hostname$nix_shell$git_branch$git_status$directory$character
       '';
       add_newline = false;
       nix_shell = {
@@ -26,6 +26,23 @@
       };
       git_branch = {
         format = "[$branch]($style) ";
+      };
+      hostname = {
+        ssh_only = false;
+        disabled = false;
+        format = "$hostname";
+        aliases = {
+          "boros"  = "✊"; 
+          "izzet"  = "⚗️";
+          "orzhov" = "☀️"; 
+          "simic"  = "🧬";
+        };
+      };
+      username = {
+        format = "[$user]($style)";  
+        aliases = {
+          "troy" = "";
+        };
       };
 
       # for distrobox
