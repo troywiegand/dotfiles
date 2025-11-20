@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../system.nix
+      ../modules/paradisus
 
       ../modules/bluetooth.nix
       ../modules/podman.nix
@@ -17,7 +18,6 @@
       ../modules/services/boardgameday.nix
       ../modules/services/code-server.nix
       ../modules/services/convertx.nix
-      ../modules/services/crafty.nix
       ../modules/services/dashy.nix
       ../modules/services/excalidraw.nix
       ../modules/services/home-assistant.nix

@@ -1,13 +1,13 @@
-{ config, lib, pkgs, ports, craftyBaseDir, userName, ... }:
+{ ports, craftyBaseDir, userName, ... }:
 {
 
   systemd.tmpfiles.rules = [
-  "d ${craftyBaseDir} 0755 ${minecraftUser} ${minecraftUser} -"
-  "d ${craftyBaseDir}/backups 0755 ${minecraftUser} ${minecraftUser} -"
-  "d ${craftyBaseDir}/logs 0755 ${minecraftUser} ${minecraftUser} -"
-  "d ${craftyBaseDir}/servers 0755 ${minecraftUser} ${minecraftUser} -"
-  "d ${craftyBaseDir}/config 0755 ${minecraftUser} ${minecraftUser} -"
-  "d ${craftyBaseDir}/import 0755 ${minecraftUser} ${minecraftUser} -"
+  "d ${craftyBaseDir}/ 0755 ${userName} ${userName} -"
+  "d ${craftyBaseDir}/backups 0755 ${userName} ${userName} -"
+  "d ${craftyBaseDir}/logs 0755 ${userName} ${userName} -"
+  "d ${craftyBaseDir}/servers 0755 ${userName} ${userName} -"
+  "d ${craftyBaseDir}/config 0755 ${userName} ${userName} -"
+  "d ${craftyBaseDir}/import 0755 ${userName} ${userName} -"
   ];
 
   virtualisation.oci-containers = {

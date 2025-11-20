@@ -1,11 +1,15 @@
-{ config, lib, pkgs, ports, ... }:
+{ ports, ... }:
 {
   networking.firewall.allowedTCPPorts = builtins.attrValues ports;
 
-  ## Import Bore for certain ports
-  boreCraftyUI = import ./bore.nix {port = ports.CraftyUI; boreName="CraftyUI";};
-  boreCraftyUI = import ./bore.nix {port = ports.MC.TestMC; boreName="TestMC";};
-  boreCraftyUI = import ./bore.nix {port = ports.MC.TestVC; boreName="TestVC";};
+  imports = [
+    ## Import Bore for certain ports
+    ( import ./bore.nix {port = ports.CraftyUI; boreName="CraftyUI";} )
+    ( import ./bore.nix {port = ports.TestMC; boreName="TestMC";} )
+    ( import ./bore.nix {port = ports.TestVC; boreName="TestVC";} )
+
+  ];
+
 
 
 }

@@ -1,6 +1,7 @@
-{ config, lib, pkgs, port, boreName, ... }:
+{ port, boreName, ... }:
 let
-  serviceName = "bore-${boreName}"
+  serviceName = "bore-${boreName}";
+in
 {
   ## Create a bore secret and populate it
   # sops.secrets."boreSecret" = {};
@@ -8,7 +9,7 @@ let
 
   virtualisation.oci-containers = {
     backend = "podman";
-    containers."${servicename}" = {
+    containers."${serviceName}" = {
       image       = "ekzhang/bore";
       autoStart   = true;
       ports       = [
