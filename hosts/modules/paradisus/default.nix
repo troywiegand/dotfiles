@@ -3,13 +3,15 @@
 let
   ports = {
     CraftyUI = 8443;
-    MC       = 26969;
-    VC       = 26970;
+    MC       = 26869;
+    VC       = 26870;
     TestMC   = 27069;
     TestVC   = 27070;
   };
-  craftyBaseDir = "/mnt/thrull/crafty";
-  userName      = "mc";
+  craftyBaseDir       = "/mnt/thrull/crafty";
+  paradisusBackupUUID = "a0a3b705-5937-4df1-9155-5d37ededb34d";
+  paradisusBackupDir  = "${craftyBaseDir}/backups/${paradisusBackupUUID}";
+  userName            = "mc";
 in
 {
 
@@ -30,5 +32,37 @@ in
 
 ## Borg Backup Jobs
 
+
+/* 
+  ## World to Boros
+  services.borgbackup.jobs.paradisus-world = {
+    paths = paradisusBackupDir;
+    encryption.mode = "none";
+    environment.BORG_RSH = "ssh -i /home/troy/.ssh/id_ed25519";
+    repo = "ssh://troy@boros:/";
+    compression = "auto,zstd";
+    startAt = "daily";
+  };
+  ## World to Purgator
+  services.borgbackup.jobs.paradisus-world = {
+    paths = paradisusBackupDir;
+    encryption.mode = "none";
+    environment.BORG_RSH = "ssh -i /home/troy/.ssh/id_ed25519";
+    repo = "ssh://user@example.com:23/path/to/backups-dir/home-danbst";
+    compression = "auto,zstd";
+    startAt = "daily";
+  };
+  
+  ## World to Boros 
+  services.borgbackup.jobs.paradisus-world = {
+    paths = paradisusBackupDir;
+    encryption.mode = "none";
+    environment.BORG_RSH = "ssh -i /home/troy/.ssh/id_ed25519";
+    repo = "ssh://user@example.com:23/path/to/backups-dir/home-danbst";
+    compression = "auto,zstd";
+    startAt = "daily";
+  };
+  
+*/
 
 }

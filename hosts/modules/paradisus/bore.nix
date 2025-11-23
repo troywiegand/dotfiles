@@ -19,7 +19,10 @@ in
       #environmentFiles = [
       #  paradisusTest.SeedPath
       #];
-      extraOptions = [ "--command" "bore local --port ${builtins.toString port}" ];
+      extraOptions = [ 
+        "--command" "bore local --port ${builtins.toString port}"
+        "--network" "host"
+      ];
     };
   };
 

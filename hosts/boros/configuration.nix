@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../system.nix
+      ../modules/services/borg.nix
 
       ../modules/bluetooth.nix
       ../modules/podman.nix

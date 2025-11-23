@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ../system.nix
       ../modules/paradisus
+      ../modules/services/borg.nix
 
       ../modules/bluetooth.nix
       ../modules/podman.nix
