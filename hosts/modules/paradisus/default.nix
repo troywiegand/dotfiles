@@ -30,39 +30,21 @@ in
 
 ### Server Management Declaritive?? This might be easier as a README for initial rollout 
 
-## Borg Backup Jobs
-
-
-/* 
   ## World to Boros
   services.borgbackup.jobs.paradisus-world = {
     paths = paradisusBackupDir;
     encryption.mode = "none";
     environment.BORG_RSH = "ssh -i /home/troy/.ssh/id_ed25519";
-    repo = "ssh://troy@boros:/";
+    repo = "ssh://troy@boros:/mnt/legion/paradisus";
     compression = "auto,zstd";
     startAt = "daily";
   };
-  ## World to Purgator
-  services.borgbackup.jobs.paradisus-world = {
-    paths = paradisusBackupDir;
-    encryption.mode = "none";
-    environment.BORG_RSH = "ssh -i /home/troy/.ssh/id_ed25519";
-    repo = "ssh://user@example.com:23/path/to/backups-dir/home-danbst";
-    compression = "auto,zstd";
-    startAt = "daily";
+
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "0 * * * *      troy     find ${paradisusBackupDir} -name '*.zip' | xargs -I {} scp {} dante@purgator:/srv/backups/"
+    ];
   };
-  
-  ## World to Boros 
-  services.borgbackup.jobs.paradisus-world = {
-    paths = paradisusBackupDir;
-    encryption.mode = "none";
-    environment.BORG_RSH = "ssh -i /home/troy/.ssh/id_ed25519";
-    repo = "ssh://user@example.com:23/path/to/backups-dir/home-danbst";
-    compression = "auto,zstd";
-    startAt = "daily";
-  };
-  
-*/
 
 }
