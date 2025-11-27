@@ -2,11 +2,13 @@
 
 let
   ports = {
-    CraftyUI = 8443;
-    MC       = 26869;
-    VC       = 26870;
-    TestMC   = 27069;
-    TestVC   = 27070;
+    CraftyUI   = 8443;
+    MC         = 26869;
+    VC         = 26870;
+    Prometheus = 25585;
+    Grafana    = 3333;
+    TestMC     = 27069;
+    TestVC     = 27070;
   };
   craftyBaseDir       = "/mnt/thrull/crafty";
   paradisusBackupUUID = "a0a3b705-5937-4df1-9155-5d37ededb34d";
@@ -22,6 +24,7 @@ in
     ( import ./crafty.nix {inherit ports; inherit craftyBaseDir; inherit userName;} )
     ## Port Management through variables (firewall and bore)
     ( import ./networking.nix {inherit ports;} )
+    ( import ./prometheus.nix {inherit ports; inherit config;} )
   ];
 
 # TO-DO's
@@ -44,6 +47,7 @@ in
     enable = true;
     systemCronJobs = [
       "0 * * * *      troy     find ${paradisusBackupDir} -name '*.zip' | xargs -I {} scp {} dante@purgator:/srv/backups/"
+      "0 * * * *      troy     find ${paradisusBackupDir} -name '*.zip' | xargs -I {} scp {} troy@boros:/mnt/legion/backups/"
     ];
   };
 

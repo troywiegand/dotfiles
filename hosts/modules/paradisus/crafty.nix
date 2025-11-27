@@ -17,6 +17,7 @@
       autoStart   = true;
       ports       = [
         "${builtins.toString ports.CraftyUI}:8443"
+        "${builtins.toString ports.Prometheus}:${builtins.toString ports.Prometheus}"
         "${builtins.toString ports.MC}:${builtins.toString ports.MC}"
         "${builtins.toString ports.VC}:${builtins.toString ports.VC}/udp"
         "${builtins.toString ports.TestMC}:${builtins.toString ports.TestMC}"
