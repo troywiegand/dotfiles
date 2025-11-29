@@ -23,8 +23,12 @@ in
     ### Docker for Crafty 
     ( import ./crafty.nix {inherit ports; inherit craftyBaseDir; inherit userName;} )
     ## Port Management through variables (firewall and bore)
-    ( import ./networking.nix {inherit ports;} )
+    ( import ./networking.nix {inherit ports; inherit config;} )
     ( import ./prometheus.nix {inherit ports; inherit config;} )
+  ];
+
+  environment.systemPackages = [
+    pkgs.bore-cli
   ];
 
 # TO-DO's

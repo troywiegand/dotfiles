@@ -1,26 +1,26 @@
-{ port, boreName, ... }:
+{ port, boreName, config, ... }:
 let
   serviceName = "bore-${boreName}";
+  boreSecret = config.sops.secrets."boreSecret".path;
+  boreServerTarget = config.sops.secrets."boreServerTarget".path;
 in
 {
   ## Create a bore secret and populate it
-  # sops.secrets."boreSecret" = {};
-  # sops.secrets."boreServerTarget" = {};
+  sops.secrets."boreSecret" = {};
+  sops.secrets."boreServerTarget" = {};
 
   virtualisation.oci-containers = {
     backend = "podman";
     containers."${serviceName}" = {
       image       = "ekzhang/bore";
       autoStart   = true;
-      ports       = [
-        "${builtins.toString port}:${builtins.toString port}"
-      ];
       ## Include this once secret is enabled
-      #environmentFiles = [
-      #  paradisusTest.SeedPath
-      #];
+      environmentFiles = [
+        boreSecret
+        boreServerTarget
+      ];
+      cmd = [ "local" "--port" "${builtins.toString port}" "${builtins.toString port}" ];
       extraOptions = [ 
-        "--command" "bore local --port ${builtins.toString port}"
         "--network" "host"
       ];
     };
