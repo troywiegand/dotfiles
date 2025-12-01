@@ -79,9 +79,9 @@
       extensions.packages =
         with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
           ublock-origin
-          dearrow
           enhanced-github
           sponsorblock
+          multi-account-containers
         ];
     };
   };

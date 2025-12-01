@@ -85,6 +85,7 @@
     just
     tdf
     typst
+    gh
 
     # compression
     ouch # all-in-one compression utility
