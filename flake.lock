@@ -272,16 +272,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1756245065,
-        "narHash": "sha256-aAZNbGcWrVRZgWgkQbkabSGcDVRDMgON4BipMy69gvI=",
+        "lastModified": 1764613336,
+        "narHash": "sha256-L979az28t/+SXvYw9qhOno5HLlDwkZOpz6LzCLnjmRM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "54b2879ce622d44415e727905925e21b8f833a98",
+        "rev": "f3902b5d8767985680875ad86d028371100faeb3",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-25.05",
+        "ref": "release-25.11",
         "repo": "home-manager",
         "type": "github"
       }
@@ -413,16 +413,16 @@
     },
     "nixpkgs-stable_3": {
       "locked": {
-        "lastModified": 1756513454,
-        "narHash": "sha256-jPb5Un1PopWBNMzooLerw7y9J3Z8KG0IBOv+4KTKX9s=",
+        "lastModified": 1764621876,
+        "narHash": "sha256-5LbbHZ0HA9J63G+5vCC5LuiaEfRGic9zWe45q1l2mLQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "9c73eb89f816260fd3375fcf4eb4aae17297a0e0",
+        "rev": "ae1e7ddadde759c470bb36554a0649701fe83d70",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "release-25.05",
+        "ref": "release-25.11",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -517,16 +517,16 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1755727480,
-        "narHash": "sha256-eb9N7XFj1zirk+D2KV+rn/CjmVHDISlxhtZCWZEVpkM=",
+        "lastModified": 1764614282,
+        "narHash": "sha256-oHT1/E5yf9lvOVHtO5joevADcQLGp5mVab5shVVqxso=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "6df0b97b39baa1c0b3002b051f307aed68e17d1b",
+        "rev": "6bdabc1359d7658e1d9ce065db37df92e904b581",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "nixos-25.05",
+        "ref": "nixos-25.11",
         "repo": "nixvim",
         "type": "github"
       }

@@ -35,8 +35,6 @@
       simple-scan
       sxiv
       pavucontrol
-      bitwarden
-      jellyfin-media-player
       vlc
       localsend
 
@@ -47,8 +45,6 @@
       # move to system
       acpi
       brightnessctl
-
-      rustdesk
 
       vscodium
 

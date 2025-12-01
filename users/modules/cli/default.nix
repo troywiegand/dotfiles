@@ -17,9 +17,9 @@
   programs = {
     git = {
       enable = true;
-      userEmail = "troy@troywiegand.com";
-      userName = "Troy Wiegand";
-      extraConfig = {
+      settings = {
+        user.email = "troy@troywiegand.com";
+        user.name = "Troy Wiegand";
         pull.rebase = false;
         init.defaultBranch = "main";
         core.editor = "nvim";
@@ -27,11 +27,6 @@
     };
 
     dircolors.enable = true;
-
-    thefuck = {
-      enable = true;
-      enableBashIntegration = true;
-    };
 
     direnv = {
       enable = true;
@@ -96,7 +91,6 @@
     tree
     ueberzugpp # for yazi terminal image previews
     fd
-    du-dust
 
     # RIIR
     ripgrep
@@ -109,7 +103,7 @@
 
     # disks
     ncdu
-    du-dust
+    dust
 
     tealdeer
     fzf

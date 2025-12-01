@@ -55,12 +55,16 @@
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
 
+  # Switch to Plasma 6
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  ## services.xserver.displayManager.gdm.enable = true;
+  ## services.xserver.desktopManager.gnome.enable = true;
 
   #Enable Cinnamon
-
   #services.xserver.displayManager.lightdm.enable = true;
   #services.xserver.desktopManager.cinnamon.enable = true;
 
