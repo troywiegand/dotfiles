@@ -27,7 +27,7 @@
         "${craftyBaseDir}/backups:/crafty/backups"
         "${craftyBaseDir}/logs:/crafty/logs"
         "${craftyBaseDir}/servers:/crafty/servers"
-        "${craftyBaseDir}/config:/crafty/config"
+        "${craftyBaseDir}/config:/crafty/app/config"
         "${craftyBaseDir}/import:/crafty/import"
       ];
       environment = {

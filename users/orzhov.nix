@@ -56,8 +56,6 @@
       inputs.ghostty.packages.x86_64-linux.default
       obsidian
       _1password-gui
-      #nerd-fonts
-      noto-fonts-emoji
 
       # dont exist yet with nixpkgs, but cargo install works
       #vtracer toml-cli ytop checkexec
