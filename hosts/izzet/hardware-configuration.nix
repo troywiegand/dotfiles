@@ -9,12 +9,12 @@
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ "evdi" ];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.evdi ];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/0710f026-5fe6-4396-a224-f407df3f03d6";
+    { device = "/dev/disk/by-uuid/838c1e40-b7b4-446c-8e71-9f2b34c4ac67";
       fsType = "ext4";
     };
 
