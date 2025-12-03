@@ -11,7 +11,7 @@ let
     TestVC     = 27070;
   };
   craftyBaseDir       = "/mnt/thrull/crafty";
-  paradisusBackupUUID = "a0a3b705-5937-4df1-9155-5d37ededb34d";
+  paradisusBackupUUID = "e17cfc0b-ca9f-42fa-89ef-d9adbb052694";
   paradisusBackupDir  = "${craftyBaseDir}/backups/${paradisusBackupUUID}";
   userName            = "mc";
 in
@@ -28,30 +28,14 @@ in
   ];
 
   environment.systemPackages = [
+    ## Used for testing commands
     pkgs.bore-cli
   ];
-
-# TO-DO's
-
-### Crafty User maangement
-
-### Server Management Declaritive?? This might be easier as a README for initial rollout 
-
-  ## World to Boros
-  services.borgbackup.jobs.paradisus-world = {
-    paths = paradisusBackupDir;
-    encryption.mode = "none";
-    environment.BORG_RSH = "ssh -i /home/troy/.ssh/id_ed25519";
-    repo = "ssh://troy@boros:/mnt/legion/paradisus";
-    compression = "auto,zstd";
-    startAt = "daily";
-  };
 
   services.cron = {
     enable = true;
     systemCronJobs = [
       "0 * * * *      troy     find ${paradisusBackupDir} -name '*.zip' | xargs -I {} scp {} dante@purgator:/srv/backups/"
-      "0 * * * *      troy     find ${paradisusBackupDir} -name '*.zip' | xargs -I {} scp {} troy@boros:/mnt/legion/backups/"
     ];
   };
 
