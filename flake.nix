@@ -96,6 +96,14 @@
         ];
         extraSpecialArgs = { inherit inputs; };
       };
+      
+      homeConfigurations."home" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ 
+          ./users/home.nix 
+        ];
+        extraSpecialArgs = { inherit inputs; };
+      };
 
       homeConfigurations."troy@simic" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -112,6 +120,13 @@
         extraSpecialArgs = { inherit inputs; };
       };
       homeConfigurations."troy@orzhov" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ 
+          ./users/orzhov.nix
+        ];
+        extraSpecialArgs = { inherit inputs; };
+      };
+      homeConfigurations."home@orzhov" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
           ./users/orzhov.nix

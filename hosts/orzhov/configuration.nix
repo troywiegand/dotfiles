@@ -94,6 +94,19 @@
       prismlauncher
     ];
   };
+
+  #User for Home Account
+
+  sops.secrets."orzhovHomePassword" = {};
+
+  users.users.home = {
+    isNormalUser = true;
+    description = "home";
+    extraGroups = [ "networkmanager" "wheel" "docker" "podman" "mc" ];
+    shell = pkgs.zsh;
+    hashedPasswordFile = config.sops.secrets."orzhovHomePassword".path;
+ 
+  };
   
   # Install firefox.
   programs.firefox.enable = true;
