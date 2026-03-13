@@ -14,6 +14,8 @@
       ../modules/bluetooth.nix
     ];
 
+  hardware.opengl.enable = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -32,8 +34,17 @@
 
   systemd.services.dlm.wantedBy = [ "multi-user.target" ];
 
+  hardware.nvidia = {
+
+  modesetting.enable = true;
+  powerManagement.enable = false;
+  open = true;
+  nvidiaSettings = true;
+  };
+
   services.xserver.videoDrivers = [ 
     "modesetting"
+    "nvidia"
   ];
 
   environment.systemPackages = with pkgs; [

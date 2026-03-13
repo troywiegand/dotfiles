@@ -41,6 +41,8 @@
       localsend
       handbrake
       arandr
+      blockbench
+      streamcontroller
 
       # container and virtual machines
       distrobox
