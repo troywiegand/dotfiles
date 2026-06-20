@@ -88,6 +88,13 @@
         ];
         specialArgs = { inherit inputs; };
       };
+      nixosConfigurations."temur" = nixpkgs-stable.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ( import ./hosts/temur/configuration.nix )
+        ];
+        specialArgs = { inherit inputs; };
+      };
 
       homeConfigurations."troy" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -129,6 +136,13 @@
         inherit pkgs;
         modules = [ 
           ./users/boros.nix
+        ];
+        extraSpecialArgs = { inherit inputs; };
+      };
+      homeConfigurations."haley@temur" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ 
+          ./users/temur.nix
         ];
         extraSpecialArgs = { inherit inputs; };
       };
