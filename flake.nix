@@ -22,6 +22,8 @@
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
+    worktrunk.url = "github:max-sixty/worktrunk";
+
     ghostty.url = "github:ghostty-org/ghostty";
 
     catppuccin.url = "github:catppuccin/nix";

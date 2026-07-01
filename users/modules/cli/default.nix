@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, inputs,... }:
 {
   imports = [
     ./starship.nix
@@ -76,6 +76,7 @@
 
   home.packages = with pkgs; [
 
+    inputs.worktrunk.packages.x86_64-linux.default
     isd
     just
     tdf

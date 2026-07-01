@@ -49,6 +49,7 @@
 
   environment.systemPackages = with pkgs; [
     openjdk
+    pkgs.javaPackages.compiler.temurin-bin.jre-25
   ];
 
   # Enable CUPS to print documents.
