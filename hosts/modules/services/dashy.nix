@@ -93,7 +93,7 @@
           {
             title = "Crafty";
             description = "Manage MC Servers";
-            url = "${secure-orzhov}:8443";
+            url = "${secure-orzhov}:27765";
             icon = "hl-crafty-controller";
           }
         ];

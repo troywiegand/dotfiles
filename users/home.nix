@@ -6,7 +6,7 @@
 
   imports = [
     inputs.flatpaks.homeManagerModules.declarative-flatpak
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
     inputs.catppuccin.homeManagerModules.catppuccin
     ./modules/cli
     ./modules/ssh.nix

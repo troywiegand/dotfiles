@@ -2,7 +2,7 @@
 
 let
   ports = {
-    CraftyUI   = 8443;
+    CraftyUI   = 27765;
     MC         = 26869;
     VC         = 26870;
     Prometheus = 25585;
@@ -13,7 +13,7 @@ let
   craftyBaseDir       = "/mnt/thrull/crafty";
   paradisusBackupUUID = "e17cfc0b-ca9f-42fa-89ef-d9adbb052694";
   paradisusBackupDir  = "${craftyBaseDir}/backups/${paradisusBackupUUID}";
-  userName            = "mc";
+  userName            = "root";
 in
 {
 
@@ -35,7 +35,8 @@ in
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "0 * * * *      troy     find ${paradisusBackupDir} -name '*.zip' | xargs -I {} scp {} dante@purgator:/srv/backups/"
+      "0 0 */3 * *      troy     find ${paradisusBackupDir} -name '*.zip' -mtime -3 | xargs -I {} scp {} dante@purgator:/srv/backups/"
+      "0 0 */3 * *      troy     find ${paradisusBackupDir} -name '*.zip' -mtime -3 | xargs -I {} gcloud storage cp {} gs://paradisus-backups/"
     ];
   };
 

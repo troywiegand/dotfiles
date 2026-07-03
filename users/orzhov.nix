@@ -3,7 +3,6 @@
   _module.args.inputs = inputs; # this is huge
   imports = [
     ./troy.nix
-    ./home.nix
 
     #./modules/terminal
 

@@ -13,7 +13,7 @@
   virtualisation.oci-containers = {
     backend = "podman";
     containers.paradisus-crafty = {
-      image       = "arcadiatechnology/crafty-4:4.6.1";
+      image       = "registry.gitlab.com/crafty-controller/crafty-4:4.10.4";
       autoStart   = true;
       ports       = [
         "${builtins.toString ports.CraftyUI}:8443"

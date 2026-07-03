@@ -16,6 +16,7 @@
       ../modules/podman.nix
       ../modules/gaming.nix
       ../modules/printing.nix
+      ../modules/services/arr.nix
       ../modules/services/boardgameday.nix
       ../modules/services/code-server.nix
       ../modules/services/convertx.nix
@@ -92,6 +93,7 @@
   users.users.troy = {
     packages = with pkgs; [
       prismlauncher
+      google-cloud-sdk
     ];
   };
 
